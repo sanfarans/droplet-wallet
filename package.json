@@ -3,6 +3,8 @@
     "@astrojs/check": "^0.4.1",
     "@creit.tech/stellar-wallets-kit": "^1.2.3",
     "astro": "^4.2.4",
+    "solid-js": "^1.9.2",
+    "stellar-sdk": "^12.3.0",
     "typescript": "^5.3.3"
   },
   "devDependencies": {
