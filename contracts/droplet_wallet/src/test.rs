@@ -1,10 +1,12 @@
 #[cfg(test)]
-extern crate std;
-
 use crate::{DropletWallet, DropletWalletClient};
-use soroban_sdk::{testutils::Address as _, token, Address, Env};
+#[cfg(test)]
+use soroban_sdk::testutils::Address as _;
+use soroban_sdk::{token, Address, Env};
+
 use token::{Client, StellarAssetClient};
 
+#[cfg(test)]
 fn create_token_contract<'a>(e: &Env, admin: &Address) -> (Client<'a>, StellarAssetClient<'a>) {
     let sac = e.register_stellar_asset_contract_v2(admin.clone());
     (
