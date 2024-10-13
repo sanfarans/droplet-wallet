@@ -1,47 +1,39 @@
-https://youtu.be/BCIEh2rwYTU
+Demo video: https://youtu.be/BCIEh2rwYTU
 
-# Soroban Project
+# Droplet Wallet
+Droplet Wallet makes micro-donations every time you use it. With thousands of users, these tiny contributions add up to create a big impact. Our goal is to harness the power of micro-transactions to support charities effortlessly as users perform their regular transactions.
 
-## Project Structure
+## Introduction
+Droplet Wallet integrates micro-donations into every transaction you make. By setting a small percentage of each transaction to be donated, users collectively contribute significant funds to charities over time. The wallet is built on the Stellar network, leveraging its fast and low-cost transactions.
 
-This repository uses the recommended structure for a Soroban project:
-```text
-.
-├── contracts
-│   └── hello_world
-│       ├── src
-│       │   ├── lib.rs
-│       │   └── test.rs
-│       └── Cargo.toml
-├── Cargo.toml
-└── README.md
-```
+## Features
+- Micro-Donations: Automatically donate a small percentage of each transaction to a charity of your choice.
+- Customizable Donation Fee: Set your preferred donation percentage (default is 1%).
+- Charity Selection: Choose any Stellar address as your charity recipient.
+- Secure Transactions: Built using Stellar smart contracts for secure and transparent operations.
 
-- New Soroban contracts can be put in `contracts`, each in their own directory. There is already a `hello_world` contract in there to get you started.
-- If you initialized this project with any other example contracts via `--with-example`, those contracts will be in the `contracts` directory as well.
-- Contracts should have their own `Cargo.toml` files that rely on the top-level `Cargo.toml` workspace for their dependencies.
-- Frontend libraries can be added to the top-level directory as well. If you initialized this project with a frontend template via `--frontend-template` you will have those files already included.
+## How It Works
+### Initialization:
 
----
-<!-- The following is the Frontend Template's README.md -->
+Users connect their Stellar wallet to Droplet Wallet.
+Initialize the wallet smart contract with your Stellar address.
+Set up your preferred charity address and donation fee percentage.
 
-# Soroban Frontend in Astro
+### Funding:
 
-A Frontend Template suitable for use with `soroban contract init --frontend-template`, powered by [Astro](https://astro.build/).
+Fund your Droplet Wallet by transferring XLM or other supported tokens.
 
-# Getting Started
+### Transactions:
 
-- `cp .env.example .env`
-- `npm install`
-- `npm run dev`
+When you transfer funds to others, a micro-donation is automatically sent to your chosen charity based on the fee percentage.
+Both the recipient and the charity receive their respective amounts transparently.
 
-# How it works
+## Scaling Impact:
 
-If you look in [package.json](./package.json), you'll see that the `start` & `dev` scripts first run the [`initialize.js`](./initialize.js) script. This script loops over all contracts in `contracts/*` and, for each:
+As more users utilize Droplet Wallet, these micro-donations accumulate, leading to substantial support for charities.
 
-1. Deploys to a local network (_needs to be running with `docker run` or `soroban network start`_)
-2. Saves contract IDs to `.soroban/contract-ids`
-3. Generates TS bindings for each into the `packages` folder, which is set up as an [npm workspace](https://docs.npmjs.com/cli/v10/configuring-npm/package-json#workspaces)
-4. Create a file in `src/contracts` that imports the contract client and initializes it for the `standalone` network.
+## Roadmap:
 
-You're now ready to import these initialized contract clients in your [Astro templates](https://docs.astro.build/en/core-concepts/astro-syntax/) or your [React, Svelte, Vue, Alpine, Lit, and whatever else JS files](https://docs.astro.build/en/core-concepts/framework-components/#official-ui-framework-integrations). You can see an example of this in [index.astro](./src/pages/index.astro).
+- Finish the frontend PoC.
+- Set up deployer contract for wallets.
+- Integrate with passkey-kit.
